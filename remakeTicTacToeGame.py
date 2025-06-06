@@ -1,39 +1,5 @@
 import numpy as np
 
-# TESTE DE TREINO
-def treinamento():
-    linha1 = np.array([[2, 2, 2],
-                       [0, 0, 0],
-                       [0, 0, 0]])
-    
-    linha2 = np.array([[0, 0, 0],
-                       [2, 2, 2],
-                       [0, 0, 0]])
-    
-    linha3 = np.array([[0, 0, 0],
-                       [0, 0, 0],
-                       [2, 2, 2]])
-    
-    vertical1 = np.array([[2, 0, 0],
-                          [2, 0, 0],
-                          [2, 0, 0]])
-    
-    vertical2 = np.array([[0, 2, 0],
-                          [0, 2, 0],
-                          [0, 2, 0]])
-    
-    vertical3 = np.array([[0, 0, 2],
-                          [0, 0, 2],
-                          [0, 0, 2]])
-    
-    diagonal1 = np.array([[2, 0, 0],
-                          [0, 2, 0],
-                          [0, 0, 2]])
-    
-    diagonal2 = np.array([[0, 0, 2],
-                          [0, 2, 0],
-                          [2, 0, 0]])
-
 # PARTE DO JOGO
 tabuleiro = np.array([[0, 0, 0],
                       [0, 0, 0],
@@ -92,3 +58,7 @@ while loop <= 9:
     else:
         print("PLAYER 2 TRUE")
         continue
+    
+# SISTEMA DE VERIFAÇÃO DE VITORIA
+if tabuleiro[0][0] & tabuleiro[0][1] & tabuleiro[0][2] == 1 or -1:
+    print("")
