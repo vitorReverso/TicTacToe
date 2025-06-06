@@ -92,3 +92,8 @@ while loop <= 9:
     else:
         print("PLAYER 2 TRUE")
         continue
+
+print("teste Branch")
+print("teste Branch")
+print("teste Branch")
+print("teste Branch")
