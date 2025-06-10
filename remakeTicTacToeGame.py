@@ -29,6 +29,50 @@ while loop <= 10:
             print(tabuleiro)
             turno = True
             continue
+
+        # TESTS VERIFICATION
+        # ROWS
+        if tabuleiro[0][0] == tabuleiro[0][1] == tabuleiro[0][2] != 0:
+            if tabuleiro[0][0] == 1:
+                print("player 1 won")
+                break
+
+        if tabuleiro[1][0] == tabuleiro[1][1] == tabuleiro[1][2] != 0:
+            if tabuleiro[1][0] == 1:
+                print("player 1 win")
+                break
+
+        if tabuleiro[2][0] == tabuleiro[2][1] == tabuleiro[2][2] != 0:
+            if tabuleiro[2][0] == 1:
+                print("player 1 win")
+                break                
+        
+        # COLUMNS
+        if tabuleiro[0][0] == tabuleiro[1][0] == tabuleiro[2][0] != 0:
+            if tabuleiro[0][0] == 1:
+                print("player 1 win")
+                break
+
+        if tabuleiro[0][1] == tabuleiro[1][1] == tabuleiro[2][1] != 0:
+            if tabuleiro[0][1] == 1:
+                print("player 1 win")
+                break
+
+        if tabuleiro[0][2] == tabuleiro[1][2] == tabuleiro[2][2] != 0:
+            if tabuleiro[0][2] == 1:
+                print("player 1 win")
+                break  
+
+        # DIAGONAL
+        if tabuleiro[0][0] == tabuleiro[1][1] == tabuleiro[2][2] != 0:
+            if tabuleiro[0][0] == 1:
+                print("player 1 win")
+                break
+
+        if tabuleiro[0][2] == tabuleiro[1][1] == tabuleiro[2][0] != 0:
+            if tabuleiro[0][2] == 1:
+                print("player 1 win")
+                break                   
     else:
         print("The position passed the limit")
         turno = True
@@ -52,57 +96,51 @@ while loop <= 10:
                 print("invalid position")
                 print(tabuleiro)
                 continue
+
+            if tabuleiro[0][0] == tabuleiro[0][1] == tabuleiro[0][2] != 0:
+                if tabuleiro[0][0] == -1:
+                    print("player 2 won")
+                    break
+
+            if tabuleiro[1][0] == tabuleiro[1][1] == tabuleiro[1][2] != 0:
+                if tabuleiro[1][0] == -1:
+                    print("player 2 win")
+                    break
+
+            if tabuleiro[2][0] == tabuleiro[2][1] == tabuleiro[2][2] != 0:
+                if tabuleiro[2][0] == -1:
+                    print("player 2 win")
+                    break                
+            
+            # COLUMNS
+            if tabuleiro[0][0] == tabuleiro[1][0] == tabuleiro[2][0] != 0:
+                if tabuleiro[0][0] == -1:
+                    print("player 2 win")
+                    break
+
+            if tabuleiro[0][1] == tabuleiro[1][1] == tabuleiro[2][1] != 0:
+                if tabuleiro[0][1] == -1:
+                    print("player 2 win")
+                    break
+
+            if tabuleiro[0][2] == tabuleiro[1][2] == tabuleiro[2][2] != 0:
+                if tabuleiro[0][2] == -1:
+                    print("player 2 win")
+                    break  
+
+            # DIAGONAL
+            if tabuleiro[0][0] == tabuleiro[1][1] == tabuleiro[2][2] != 0:
+                if tabuleiro[0][0] == -1:
+                    print("player 2 win")
+                    break
+
+            if tabuleiro[0][2] == tabuleiro[1][1] == tabuleiro[2][0] != 0:
+                if tabuleiro[0][2] == -1:
+                    print("player 2 win")
+                    break                
         else:
             print("The position passed the limit")
             continue
     else:
         print("PLAYER 2 TRUE")
         continue
-
-# VICTORY SYSTEM
-    # ROWS
-if tabuleiro[0][0] == tabuleiro[0][1] == tabuleiro[0][2] != 0:
-    if tabuleiro[0][0] == 1:
-        print("player 1 won") 
-    else:
-        print("player 2 won")
-
-elif tabuleiro[1][0] == tabuleiro[1][1] == tabuleiro[1][2] != 0:
-    if tabuleiro[1][0] == 1:
-        print("player 1 win")
-    else:
-        print("player 2 win")
-elif tabuleiro[2][0] == tabuleiro[2][1] == tabuleiro[2][2] != 0:
-    if tabuleiro[2][0] == 1:
-        print("player 1 win")
-    else:
-        print("player 2 win")
-
-    # COLUMNS
-if tabuleiro[0][0] == tabuleiro[1][0] == tabuleiro[2][0] != 0:
-    if tabuleiro[0][0] == 1:
-        print("player 1 win")
-    else:
-        print("player 2 win")
-elif tabuleiro[0][1] == tabuleiro[1][1] == tabuleiro[2][1] != 0:
-    if tabuleiro[0][1] == 1:
-        print("player 1 win")
-    else:
-        print("player 2 win")
-elif tabuleiro[0][2] == tabuleiro[1][2] == tabuleiro[2][2] != 0:
-    if tabuleiro[0][2] == 1:
-        print("player 1 win")
-    else:
-        print("player 2 win")
-
-    # DIAGONAL
-if tabuleiro[0][0] == tabuleiro[1][1] == tabuleiro[2][2] != 0:
-    if tabuleiro[0][0] == 1:
-        print("player 1 win")
-    else:
-        print("player 2 win")
-if tabuleiro[0][2] == tabuleiro[1][1] == tabuleiro[2][0] != 0:
-    if tabuleiro[0][2] == 1:
-        print("player 1 win")
-    else:
-        print("player 2 win")
