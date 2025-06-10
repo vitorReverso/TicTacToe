@@ -144,3 +144,4 @@ while loop <= 10:
     else:
         print("PLAYER 2 TRUE")
         continue
+    
