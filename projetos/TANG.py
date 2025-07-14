@@ -143,8 +143,8 @@ def victory_Set(board):
 
 def game():
     game = TicTacToe
-    game.gameboard = np.array([[1, 0, 0],
-                                [1, 0, 0],
+    game.gameboard = np.array([[0, 0, 0],
+                                [0, 0, 0],
                                 [0, 0, 0]])
     return game.gameboard
 board = game()
@@ -222,16 +222,19 @@ def NEURAL_NETWORK(board):
     hidden_real = ReLU(np.dot(original_input, HE_weight))
     output_real = softmax(np.dot(hidden_real, GLOROT_weight))
 
-    # VECTOR ONE-HOT
-    turno = False
+    # BLOCK SYSTEM
+    flat_board = board.flatten()
+    output_Relu[flat_board != 0] = -np.inf
 
-    vector = [0] * 9
-    vector[np.argmax(output_real)] = -1
-    vector = np.array(vector)
+    best_move = np.argmax(output_real)
+    row, col = divmod(best_move, 3)
 
-    board = board + (vector.reshape(3, 3))
+    if board[row][col] == 0:
+        board[row][col] = -1
+    else:
+        print("attempted invalid move")
+
     print(board)
-
     return board
 neural = NEURAL_NETWORK(board)
 
