@@ -26,47 +26,29 @@ def ReLU(x):
 def derivative_Relu(x):
     return np.where(x > 0, 1, 0)
 
-def trainingData_set():
+def trainingData_set(board):
     lines = np.array([
         # ROW
-        [1, 1, 0, 0, 0, 0, 0, 0, 0], 
-        [1, 0, 1, 0, 0, 0, 0, 0, 0], 
-        [0, 1, 1, 0, 0, 0, 0, 0, 0], 
-        
-        # ROW 2
-        [0, 0, 0, 1, 1, 0, 0, 0, 0], 
-        [0, 0, 0, 1, 0, 1, 0, 0, 0], 
-        [0, 0, 0, 0, 1, 1, 0, 0, 0], 
-        
+        board[0, 0], board[0, 1], # 1, 1, X
+        board[1, 0], board[1, 1], # 1, 1, X
+        board[2, 0], board[2, 1], # 1, 1, X
+
+        # R0W 2
+        board[0, 0], board[0, 2], # 1, X, 1
+        board[1, 0], board[1, 2], # 1, X, 1
+        board[2, 0], board[2, 2], # 1, X, 1
+
         # ROW 3
-        [0, 0, 0, 0, 0, 0, 1, 1, 0], 
-        [0, 0, 0, 0, 0, 0, 1, 0, 1], 
-        [0, 0, 0, 0, 0, 0, 0, 1, 1], 
-        
-        # COLUMN 1
-        [1, 0, 0, 1, 0, 0, 0, 0, 0], 
-        [1, 0, 0, 0, 0, 0, 1, 0, 0], 
-        [0, 0, 0, 1, 0, 0, 1, 0, 0], 
-        
-        # COLUMN 2
-        [0, 1, 0, 0, 1, 0, 0, 0, 0], 
-        [0, 1, 0, 0, 0, 0, 0, 1, 0], 
-        [0, 0, 0, 0, 1, 0, 0, 1, 0], 
-        
-        # COLUMN 3
-        [0, 0, 1, 0, 0, 1, 0, 0, 0], 
-        [0, 0, 1, 0, 0, 0, 0, 0, 1], 
-        [0, 0, 0, 0, 0, 1, 0, 0, 1], 
-        
-        # DIAGONAL 
-        [1, 0, 0, 0, 1, 0, 0, 0, 0], 
-        [1, 0, 0, 0, 0, 0, 0, 0, 1], 
-        [0, 0, 0, 0, 1, 0, 0, 0, 1], 
-        
-        # DIAGONAL 2
-        [0, 0, 1, 0, 1, 0, 0, 0, 0], 
-        [0, 0, 1, 0, 0, 0, 1, 0, 0], 
-        [0, 0, 0, 0, 1, 0, 1, 0, 0], 
+        board[0, 1], board[0, 2], # X, 1, 1
+        board[1, 1], board[1, 2], # X, 1, 1
+        board[2, 1], board[2, 2], # X, 1, 1
+
+        # COLUMN
+        board[0, 0], board[1, 0], 
+        board[0, 1], board[1, 1],
+        board[0, 2], board[1, 2],
+
+        board[]
     ])   
 
     return lines
@@ -222,19 +204,20 @@ def NEURAL_NETWORK(board):
     hidden_real = ReLU(np.dot(original_input, HE_weight))
     output_real = softmax(np.dot(hidden_real, GLOROT_weight))
 
-    # BLOCK SYSTEM
-    flat_board = board.flatten()
-    output_Relu[flat_board != 0] = -np.inf
+    # BLOCK MASK
+    vector = board.flatten()
+    output_real[vector != 0] = -np.inf
 
     best_move = np.argmax(output_real)
-    row, col = divmod(best_move, 3)
+    game.row, game.collumn = divmod(best_move, 3)
 
-    if board[row][col] == 0:
-        board[row][col] = -1
+    if board[game.row][game.collumn] == 0:
+        board[game.row][game.collumn] = -1
     else:
         print("attempted invalid move")
 
     print(board)
+
     return board
 neural = NEURAL_NETWORK(board)
 
